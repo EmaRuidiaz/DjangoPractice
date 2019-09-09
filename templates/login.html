@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
+	<title>Log In</title>
+</head>
+<body>
+	<div class="container-fluid" >
+		
+		<div class="row">
+
+			<div class="col-6">
+				<div class="row d-flex justify-content-center align-items-center" style="background-image: url('http://i41.tinypic.com/24y634o.jpg');">
+					<img height="667" src="" alt="">
+					<h1 class="text-light font-weight-light">Django Project <span class="badge badge-info font-weight-light">New</span></h1>
+				</div>
+			</div>
+
+			<div class="col-6" height="667">
+				<div class="row d-flex justify-content-center align-items-center">
+					<div class="card shadow-lg p-3 mb-5 rounded" style="margin-top: 12%;">
+						<div class="card-header d-flex justify-content-center bg-white">
+							<img clas="card-img-top" src="https://amcrest.ca/media/catalog/product/cache/1/image10/225x150/9df78eab33525d08d6e5fb8d27136e95/i/p/ipm-721_2_10.png" alt="">	
+						</div>
+						<div class="card-body">
+							{% if form.errors %}
+								<div class="alert" style="background-color: red;"> {{form.errors}} </div>
+							{% endif %}
+							<form action="{% url 'login' %}" method="POST">{% csrf_token %}
+								<div class="form-group">
+								    <label for="exampleInputEmail1">Username</label>
+								    <input type="text" class="form-control" name="username" aria-describedby="emailHelp" placeholder="Enter username">
+								    <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
+								  </div>
+								  <div class="form-group">
+								    <label for="exampleInputPassword1">Password</label>
+								    <input type="password" class="form-control" name="password" placeholder="Password">
+								  </div>
+								  <input type="hidden" name="next" value="{{ next }}" />
+
+								  <button type="submit" class="btn btn-primary">Submit</button>
+							</form>
+						</div>				
+					</div>
+				</div>				
+			</div>
+
+		</div>
+
+	</div>
+
+
+</body>
+</html>

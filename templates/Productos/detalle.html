@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+	{% block contenido %}
+
+	<div class="row">
+
+
+		<div class="col-4 ">
+			<div class="card" style="width: 18rem;">
+				{% if Productos.imagen.url != null %}
+				<img src="{{Productos.imagen.url}}" class="card-img-top" alt="...">
+				{% else %}
+				<img src="https://www.construmart.cl/tiendaonline/images/site/no-disponible.png" class="card-img-top" alt="...">
+				{% endif %}
+				<div class="card-body">
+					<h5 class="card-title">{{Productos.nombre}}</h5>
+					<p class="card-text">Precio: {{Productos.precio}}</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Stock: {{Productos.stock}}</li>
+				</ul>
+				<div class="card-body">
+					<span>Disponible: {% if Productos.stock > 0 %}
+						Si
+					{% else %}
+						No
+					{% endif %}
+					</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-4">
+		</div>
+
+	</div>
+
+	{% endblock contenido %}

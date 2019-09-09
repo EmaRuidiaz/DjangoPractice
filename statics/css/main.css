@@ -1,0 +1,29 @@
+.foot{
+	background-color: #594266;
+	margin-top: 3px;
+	color: white;
+  width: 100%;
+}
+
+.nav{
+	background-color: #1E012E;
+}
+
+.container-fluid{
+	position: relative;
+	min-height: 500px;
+}
+
+.boton{
+	background-color: #594266;
+}
+
+@media (min-width:34em) {
+  .card-deck > .card
+  {
+      width: 29%;
+      flex-wrap: wrap;
+      flex: initial; 
+      margin-top: 15px;
+  }
+}

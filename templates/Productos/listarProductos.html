@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+	{% block contenido %}
+
+		<div class="row d-flex justify-content-between align-items-center">
+			<div class="d-flex justify-content-start text-muted">
+				<h1>Productos</h1>
+			</div>
+			<div>
+				<span class="d-flex align-items-center">
+					{{Cantidad}} resultados.
+			</span>
+			</div>
+			<div>
+				<button type="button" class="btn btn-success mb-2 mt-2 ml-2 mr-2"><a class="text-light" href="{% url 'productos:agregar' %}">Agregar Producto +</a></button>
+			</div>
+		</div>
+
+		<div class="card-deck ml-2 mr-2 pb-5">
+			
+			{% for p in Productos %}
+
+				<div class="card mb-3 shadow-sm bg-white rounded" style="max-width: 540px;">
+					<div class="row no-gutters">
+				    	<div class="col-md-4 d-flex align-items-center">
+				    	{% if p.imagen %}
+				    		<img src="{{p.imagen.url}}" class="card-img" alt="...">
+				    	{%endif%}
+				    	</div>
+
+				    	<div class="col-md-8">
+				    		<div class="card-body">
+				    			<a href="{% url 'productos:detalle' p.pk %}"><h5 class="card-title">{{p.nombre}}</h5></a>
+				    			<p class="card-text">{{p.stock}}</p>
+				    			<p class="card-text"><small class="text-muted">$ {{p.precio}}</small></p>
+				    			<a href="{% url 'productos:modificar' p.pk %}">
+				    				<span>Modificar</span>
+				    			</a>
+				    		</div>
+				  		</div>
+					</div>
+				</div>
+
+			
+				
+			{% endfor%}	
+		</div>
+
+	{% endblock contenido %}
