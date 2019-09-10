@@ -14,12 +14,12 @@
 
 				 	<div class="d-flex justify-content-between mt-2">
 				 		<div>
-				 			<button type="submit" class="btn btn-secondary"><a class="text-white" href="{% url 'productos:listar' %}">Cancel</a></button>
+				 			<button type="submit" class="btn btn-secondary"><a class="text-white" href="{% url 'rubros:listar' %}">Cancel</a></button>
 				 			<button type="submit" class="btn btn-success">Guardar</button>
 				 		</div>
 				 		{% if object %}
 				 		<div>
-				 			<a type="submit" href="{% url 'productos:eliminar' object.pk %}" class="btn btn-danger">Eliminar</a>
+				 			<a type="submit" href="{% url 'rubros:eliminar' object.pk %}" class="btn btn-danger">Eliminar</a>
 				 		</div>
 				 		<div class="mt-5 mb-5">
 				 			

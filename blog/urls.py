@@ -34,5 +34,6 @@ urlpatterns = [
 
     #URLS PARA REDIRECCIONAR
     path('productos/', include('apps.productos.urls')),
+    path('rubros/', include('apps.rubro.urls')),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

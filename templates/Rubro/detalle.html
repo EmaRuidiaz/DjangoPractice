@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+	{% block contenido %}
+
+	<div class="row">
+
+
+		<div class="col-4 ">
+			<div class="card" style="width: 18rem;">
+				<div class="card-body">
+					<h5 class="card-title">{{object.nombre}}</h5>
+					<p class="card-text">Descripción: {{object.descripcion}}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-4">
+		</div>
+
+	</div>
+
+	{% endblock contenido %}

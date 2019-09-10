@@ -7,20 +7,20 @@
 
 		<div class="col-4 ">
 			<div class="card" style="width: 18rem;">
-				{% if Productos.imagen.url != null %}
-				<img src="{{Productos.imagen.url}}" class="card-img-top" alt="...">
+				{% if object.imagen.url != null %}
+				<img src="{{object.imagen.url}}" class="card-img-top" alt="...">
 				{% else %}
 				<img src="https://www.construmart.cl/tiendaonline/images/site/no-disponible.png" class="card-img-top" alt="...">
 				{% endif %}
 				<div class="card-body">
-					<h5 class="card-title">{{Productos.nombre}}</h5>
-					<p class="card-text">Precio: {{Productos.precio}}</p>
+					<h5 class="card-title">{{object.nombre}}</h5>
+					<p class="card-text">Precio: {{object.precio}}</p>
 				</div>
 				<ul class="list-group list-group-flush">
-					<li class="list-group-item">Stock: {{Productos.stock}}</li>
+					<li class="list-group-item">Stock: {{object.stock}}</li>
 				</ul>
 				<div class="card-body">
-					<span>Disponible: {% if Productos.stock > 0 %}
+					<span>Disponible: {% if object.stock > 0 %}
 						Si
 					{% else %}
 						No

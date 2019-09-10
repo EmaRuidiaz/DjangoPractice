@@ -13,7 +13,7 @@
 		
 
 		<div class="row">
-			<div class="col-8 nav">
+			<div class="col-4 nav">
 				<div style="margin: 10px">
 					{% if user.is_authenticated %}
 						<b class="text-light">Hola, {{user.username}}!</b>
@@ -21,8 +21,12 @@
 					{% else %}
 						<a href="{% url 'login' %}">Login</a>
 					{% endif %}
-				</div>					
-			</div>
+				</div>	
+			</div>	
+			<div class="col-4 nav d-flex justify-content-center">
+				<button type="button" class="mt-2 mb-2 btn btn-light" onClick="location.href='{% url 'start' %}'">Home</button>
+			</div>			
+			
 			<div class="col-4 nav d-flex justify-content-end">
 				<a href="#"><img  height = '50' width = '200' src="https://media.flaticon.com/dist/min/img/logo/freepikcompany.svg" alt=""/></a>
 			</div>
