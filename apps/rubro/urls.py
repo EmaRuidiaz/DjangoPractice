@@ -9,5 +9,5 @@ urlpatterns = [
     path('detalle/<int:pk>', views.DetalleRubro.as_view(), name="detalle"),
     path('agregar/', views.AgregarRubro.as_view(), name="agregar"),
     path('modificar/<int:pk>', views.ModificarRubro.as_view(), name="modificar"),
-    path('eliminar/<int:pk>', views.EliminarRubro.as_view(), name="eliminar")
+    path('eliminar/<int:pk>', views.EliminarRubro.as_view(), name="eliminar"),
 ]

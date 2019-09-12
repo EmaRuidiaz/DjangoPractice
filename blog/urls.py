@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     #URLS PRINCIPALES
-    path('', views.inicio, name="start"),
+    path('', views.ListarRubrosHome.as_view(), name="start"),
 
     #URLS LOGIN AND LOGOUT
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name="login"),
