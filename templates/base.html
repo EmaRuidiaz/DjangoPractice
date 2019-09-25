@@ -9,26 +9,26 @@
 	<title>Blog Ema</title>
 </head>
 <body>
-	<div class="container-fluid" style="background-image: url('https://cdn.pixabay.com/photo/2017/01/18/15/51/paper-1990111_960_720.jpg')">
+	<div class="container-fluid" style="background-color: rgb(219, 219, 219)">
 		
 
 		<div class="row">
 			<div class="col-4 nav">
-				<div style="margin: 10px">
+				<div style="margin: 10px" class="d-flex align-items-center">
 					{% if user.is_authenticated %}
-						<b class="text-light">Hola, {{user.username}}!</b>
-						<a href="{% url 'logout' %}">Logout</a>
+						<b class="text-light mr-2">Hola, {{user.username}}!</b>
+						<a href="{% url 'logout' %}"><img class="ml-2" src="{% static 'img/poweroff.png' %}" width="20" alt="logout" title="Logout"></a>
 					{% else %}
 						<a href="{% url 'login' %}">Login</a>
 					{% endif %}
 				</div>	
 			</div>	
 			<div class="col-4 nav d-flex justify-content-center">
-				<button type="button" class="mt-2 mb-2 btn btn-light" onClick="location.href='{% url 'start' %}'">Home</button>
+				<button type="button" class="mt-2 mb-2 btn btn-sm " onClick="location.href='{% url 'start' %}'"><img class="" src="{% static 'img/home.png' %}" alt="" width="30"></i></button>
 			</div>			
 			
 			<div class="col-4 nav d-flex justify-content-end">
-				<a href="#"><img  height = '50' width = '200' src="https://media.flaticon.com/dist/min/img/logo/freepikcompany.svg" alt=""/></a>
+				<a href="#"><img  height = '50' width = '200' src="https://media.flaticon.com/dist/min/img/logo/freepikcompany.svg" /></a>
 			</div>
 		</div>
 

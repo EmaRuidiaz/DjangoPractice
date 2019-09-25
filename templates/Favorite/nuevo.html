@@ -12,20 +12,6 @@
 
 					{{ form.as_p }}
 
-				 	<div class="d-flex justify-content-between mt-2">
-				 		<div>
-				 			<button type="submit" class="btn btn-secondary"><a class="text-white" href="{% url 'productos:porrubro' %}">Cancel</a></button>
-				 			<button type="submit" class="btn btn-success">Guardar</button>
-				 		</div>
-				 		{% if object %}
-				 		<div>
-				 			<a type="submit" href="{% url 'productos:eliminar' object.pk %}" class="btn btn-danger">Eliminar</a>
-				 		</div>
-				 		<div class="mt-5 mb-5">
-				 			
-				 		</div>
-				 		{% endif %}
-				 	</div>
 				</form>
 			</div>
 

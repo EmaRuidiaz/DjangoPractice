@@ -4,46 +4,94 @@
 
 		<div class="row d-flex justify-content-between align-items-center ml-3 mr-3">
 			<div class="d-flex justify-content-start text-muted">
-				<h1>{{ object_list.0.rubro }}</h1>
+				
+				<h1>{{rubroUnico}}</h1>
+				
 			</div>
 			<div>
 				<span class="d-flex align-items-center">
 					{{ object_list|length }} resultados.
-			</span>
+				</span>
+			</div>
+			<div clas="col-12 mt-3 mb-3 ml-5">
+
+				<form action="">
+					<div class="d-flex justify-content-center align-items-center">
+						<select name="filtro" class="custom-select">							
+							<option value="0">Todos los Rubros</option>
+							{% for p in rubros %}
+								<option value='{{p.pk}}'>{{p.nombre}}</option>
+							{% endfor %}
+							
+						</select>
+						<button type="submit" class="ml-2 btn-sm btn btn-secondary">Filtrar</button>
+					</div>
+				</form>
+			</div>
+			<div>
+				<form action="">
+					<div class="d-flex justify-content-center align-items-center">
+					<select name="disponibles" id="" class="custom-select">
+						<option value="no">Todos los Productos</option>
+						<option value="si">Disponibles</option>
+					</select>
+					<button type="submit" class="ml-2 btn-sm btn btn-secondary">Filtrar</button>
+					</div>
+				</form>
 			</div>
 			<div>
 				<button type="button" class="btn btn-success mb-2 mt-2 ml-2 mr-2"><a class="text-light" href="{% url 'productos:agregar' %}">Agregar Producto +</a></button>
 			</div>
 		</div>
+		
+		<div class="row">
+			<div class="col-2">
+				<form class="ml-3 mt-2">
+					<label for="">Filtro por precio ($)</label>
 
-		<div class="card-deck ml-2 mr-2 pb-5">
-			
-			{% for p in object_list %}
+					<input type="number" name="desde" placeholder="desde">
+					<input type="number" name="hasta" placeholder="hasta">
+		
+					<div class="mt-2">
+						<button type="submit" class="btn-sm btn btn-secondary"> Filtrar </button>
+					</div>					
+				</form>
+			</div>
+			<div class="col-10">
+				<div class="card-deck mr-2 pb-2 bg-white rounded-lg">
+					
+					{% if not object_list|length %}
+							<h3 class="ml-3 mt-2"><label class="text-secondary" for="">No hay resultados</label></h3>
+						{% endif %}
 
-				<div class="card mb-3 shadow-sm bg-white rounded" style="max-width: 540px;">
-					<div class="row no-gutters">
-				    	<div class="col-md-4 d-flex align-items-center">
-				    	{% if p.imagen %}
-				    		<img src="{{p.imagen.url}}" class="card-img" alt="...">
-				    	{%endif%}
-				    	</div>
+					{% for p in object_list %}
 
-				    	<div class="col-md-8">
-				    		<div class="card-body">
-				    			<a href="{% url 'productos:detalle' p.pk %}"><h5 class="card-title">{{p.nombre}}</h5></a>
-				    			<p class="card-text">{{p.stock}}</p>
-				    			<p class="card-text"><small class="text-muted">$ {{p.precio}}</small></p>
-				    			<a href="{% url 'productos:modificar' p.pk %}">
-				    				<span>Modificar</span>
-				    			</a>
-				    		</div>
-				  		</div>
-					</div>
-				</div>
+						<div class="card mb-3 shadow-sm bg-gradient-light rounded d-flex align-items-center" style="max-width: 540px; background-color: rgba(89, 66, 102, 0.2);">
+							<div class="row no-gutters d-flex align-items-center">
+						    	<div class="col-md-4 d-flex align-items-stretch">
+						    	{% if p.imagen %}
+						    		<img src="{{p.imagen.url}}" class="card-img" alt="...">
+						    	{%endif%}
+						    	</div>
 
-			
+						    	<div class="col-md-8">
+						    		<div class="card-body">
+						    			<a href="{% url 'productos:detalle' p.pk %}"><h5 class="card-title">{{p.nombre}}</h5></a>
+						    			<p class="card-text">Stock: {% if p.stock > 0 %} {{p.stock}} {% endif %} {% if p.stock <= 0 %} <span class="text-danger"> No disponible</span> {% endif %}</p> 
+						    			<p class="card-text"><small class="text-muted">$ {{p.precio}}</small></p>
+						    			<a href="{% url 'productos:modificar' p.pk %}">
+						    				<span>Modificar</span>
+						    			</a>
+						    			<a href="{% url 'favorite:agregar' p.pk %}">fav</a>
+						    		</div>
+						  		</div>
+							</div>
+						</div>
+
 				
-			{% endfor%}	
+					{% endfor%}	
+				</div>
+			</div>
 		</div>
 
 	{% endblock contenido %}

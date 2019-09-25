@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.productos',
     'apps.rubro',
+    'apps.favorite',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,5 @@ STATICFILES_DIRS = (os.path.join(os.path.dirname(BASE_DIR), "statics"),)
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
 MEDIA_URL = '/media/'
 
+#Para no usar el User directamente en el modelo como FK
+#AUTH_USER_MODEL = 'users.CustomUser'
