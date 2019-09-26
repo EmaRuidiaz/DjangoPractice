@@ -20,7 +20,6 @@ def AddFavorite(request, pk): #Vistas basadas en funciones
 	except:
 		check = None
 	
-	print(check)
 	if not check:
 		fav = Favorite.objects.create(producto = producto, user = request.user)
 		fav.save()
@@ -28,6 +27,11 @@ def AddFavorite(request, pk): #Vistas basadas en funciones
 		fav = Favorite.objects.get(producto = producto, user = request.user).delete()
 			
 	return redirect('productos:porrubro')
+
+
+
+
+
 
 	
 

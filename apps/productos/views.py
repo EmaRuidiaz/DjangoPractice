@@ -68,8 +68,16 @@ class ListarProductosPorRubro(LoginRequiredMixin, ListView):
 		context = super().get_context_data(**kwargs)
 		context['rubros'] = Rubro.objects.all()
 
-		context['favorites'] = Favorite.objects.filter(user = self.request.user).values('producto')
+		favorites = Favorite.objects.filter(user = self.request.user).values('producto')
 
+		fav = []
+		for p in context['object_list']:
+			for i in favorites:
+				if p.pk == i['producto']:
+					fav.append(p.pk)
+
+		context['favList'] = fav
+		
 		rubro = self.request.GET.get('filtro', None)
 		if not rubro:
 			rubro = "0"
